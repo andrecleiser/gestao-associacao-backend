@@ -1,0 +1,8 @@
+/home/andre/dev/projetos/gestao-associacao/src/main/java/pt/org/hc/gestao/associados/api/BaseApi.java
+/home/andre/dev/projetos/gestao-associacao/src/main/java/pt/org/hc/gestao/associados/dao/AssociadoDao.java
+/home/andre/dev/projetos/gestao-associacao/src/main/java/pt/org/hc/gestao/associados/entidade/Associado.java
+/home/andre/dev/projetos/gestao-associacao/src/main/java/pt/org/hc/gestao/associados/dto/mapper/AssociadoMapper.java
+/home/andre/dev/projetos/gestao-associacao/src/main/java/pt/org/hc/gestao/associados/dto/AssociadoFotoDto.java
+/home/andre/dev/projetos/gestao-associacao/src/main/java/pt/org/hc/gestao/associados/api/AssociadosApi.java
+/home/andre/dev/projetos/gestao-associacao/src/main/java/pt/org/hc/gestao/associados/dto/AssociadoDto.java
+/home/andre/dev/projetos/gestao-associacao/src/main/java/pt/org/hc/gestao/associados/servico/AssociadoServico.java
