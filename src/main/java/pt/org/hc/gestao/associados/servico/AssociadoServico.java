@@ -1,5 +1,6 @@
 package pt.org.hc.gestao.associados.servico;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,8 +10,9 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import pt.org.hc.gestao.associados.dao.AssociadoDao;
-import pt.org.hc.gestao.associados.dto.AssociadoDto;
-import pt.org.hc.gestao.associados.dto.AssociadoFotoDto;
+import pt.org.hc.gestao.associados.dto.Associado.AssociadoDto;
+import pt.org.hc.gestao.associados.dto.Associado.AssociadoFotoDto;
+import pt.org.hc.gestao.associados.dto.Associado.PerfilAssociadoDto;
 import pt.org.hc.gestao.associados.dto.mapper.AssociadoMapper;
 import pt.org.hc.gestao.associados.entidade.Associado;
 
@@ -23,8 +25,12 @@ public class AssociadoServico {
     @Inject
     AssociadoMapper associadoMapper;
 
-    public List<Associado> listarAssociados() {
-        return this.associadoDao.listAll();
+    public List<PerfilAssociadoDto> listarPerfilAssociados() {
+        ArrayList<PerfilAssociadoDto> listaPerfilAssociadoDto = new ArrayList<PerfilAssociadoDto>();
+        this.associadoDao
+            .listAll()
+            .forEach(associado -> listaPerfilAssociadoDto.add(this.associadoMapper.paraPerfilDto(associado)));
+        return listaPerfilAssociadoDto;
     }
 
     public Associado listarAssociadoPorId(Integer idAssociado) {
@@ -68,7 +74,7 @@ public class AssociadoServico {
         // TODO - VALIDAR QUANDO NÃO EXISTIR ASSOCIADO
         this.associadoDao.delete(associado.get());
     }
-    
+
     @Transactional
     public void atualizarFoto(Integer idAssociado, AssociadoFotoDto associadoFotoDto) {
         Associado associado = this.associadoDao.findById(idAssociado);
@@ -78,8 +84,8 @@ public class AssociadoServico {
     }
 
     @Transactional
-	public void excluirFoto(Integer idAssociado) {
+    public void excluirFoto(Integer idAssociado) {
         this.associadoDao.update("foto = null where idAssociado = ?1", idAssociado);
-	}
+    }
 
 }

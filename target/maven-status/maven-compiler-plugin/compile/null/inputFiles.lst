@@ -1,0 +1,9 @@
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/dto/mapper/AssociadoMapper.java
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/api/AssociadoApi.java
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/dao/AssociadoDao.java
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/dto/Associado/AssociadoFotoDto.java
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/dto/Associado/AssociadoDto.java
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/dto/Associado/PerfilAssociadoDto.java
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/api/BaseApi.java
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/entidade/Associado.java
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/servico/AssociadoServico.java

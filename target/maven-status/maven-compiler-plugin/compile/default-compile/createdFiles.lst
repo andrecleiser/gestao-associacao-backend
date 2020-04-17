@@ -1,9 +1,0 @@
-pt/org/hc/gestao/associados/api/BaseApi.class
-pt/org/hc/gestao/associados/dto/AssociadoDto.class
-pt/org/hc/gestao/associados/dao/AssociadoDao.class
-pt/org/hc/gestao/associados/dto/mapper/AssociadoMapperImpl.class
-pt/org/hc/gestao/associados/dto/mapper/AssociadoMapper.class
-pt/org/hc/gestao/associados/entidade/Associado.class
-pt/org/hc/gestao/associados/servico/AssociadoServico.class
-pt/org/hc/gestao/associados/api/AssociadosApi.class
-pt/org/hc/gestao/associados/dto/AssociadoFotoDto.class

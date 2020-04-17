@@ -1,0 +1,12 @@
+pt/org/hc/gestao/associados/api/BaseApi.class
+pt/org/hc/gestao/associados/dto/Associado/AssociadoFotoDto.class
+application.properties
+pt/org/hc/gestao/associados/dao/AssociadoDao.class
+pt/org/hc/gestao/associados/dto/Associado/AssociadoDto.class
+META-INF/resources/index.html
+pt/org/hc/gestao/associados/dto/mapper/AssociadoMapperImpl.class
+pt/org/hc/gestao/associados/dto/mapper/AssociadoMapper.class
+pt/org/hc/gestao/associados/entidade/Associado.class
+pt/org/hc/gestao/associados/servico/AssociadoServico.class
+pt/org/hc/gestao/associados/api/AssociadoApi.class
+pt/org/hc/gestao/associados/dto/Associado/PerfilAssociadoDto.class
