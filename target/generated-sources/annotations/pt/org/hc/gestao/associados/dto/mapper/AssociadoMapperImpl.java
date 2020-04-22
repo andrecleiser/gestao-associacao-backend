@@ -8,7 +8,7 @@ import pt.org.hc.gestao.associados.entidade.Associado;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-04-16T12:38:24+0100",
+    date = "2020-04-22T18:46:27+0100",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 1.8.0_221 (Oracle Corporation)"
 )
 @ApplicationScoped
@@ -25,7 +25,6 @@ public class AssociadoMapperImpl implements AssociadoMapper {
         associado.setNome( associadoDto.getNome() );
         associado.setNomeMae( associadoDto.getNomeMae() );
         associado.setNomePai( associadoDto.getNomePai() );
-        associado.setDataNascimento( associadoDto.getDataNascimento() );
         associado.setMorada( associadoDto.getMorada() );
         associado.setConcelho( associadoDto.getConcelho() );
         associado.setDistrito( associadoDto.getDistrito() );
@@ -34,6 +33,8 @@ public class AssociadoMapperImpl implements AssociadoMapper {
         associado.setCodigoPostal( associadoDto.getCodigoPostal() );
         associado.setEmail( associadoDto.getEmail() );
         associado.setNacionalidade( associadoDto.getNacionalidade() );
+
+        associado.setDataNascimento( associadoDto.getDataNascimento().toLocalDate() );
 
         return associado;
     }
@@ -53,5 +54,30 @@ public class AssociadoMapperImpl implements AssociadoMapper {
         perfilAssociadoDto.setFoto( associado.getFoto() );
 
         return perfilAssociadoDto;
+    }
+
+    @Override
+    public AssociadoDto paraAssociadoDto(Associado associado) {
+        if ( associado == null ) {
+            return null;
+        }
+
+        AssociadoDto associadoDto = new AssociadoDto();
+
+        associadoDto.setNome( associado.getNome() );
+        associadoDto.setNomeMae( associado.getNomeMae() );
+        associadoDto.setNomePai( associado.getNomePai() );
+        associadoDto.setMorada( associado.getMorada() );
+        associadoDto.setConcelho( associado.getConcelho() );
+        associadoDto.setDistrito( associado.getDistrito() );
+        associadoDto.setTelemovel( associado.getTelemovel() );
+        associadoDto.setDdi( associado.getDdi() );
+        associadoDto.setCodigoPostal( associado.getCodigoPostal() );
+        associadoDto.setEmail( associado.getEmail() );
+        associadoDto.setNacionalidade( associado.getNacionalidade() );
+
+        associadoDto.setDataNascimento( java.time.LocalDateTime.of(associado.getDataNascimento(), java.time.LocalTime.MIN) );
+
+        return associadoDto;
     }
 }

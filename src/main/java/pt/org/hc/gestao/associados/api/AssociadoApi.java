@@ -1,5 +1,7 @@
 package pt.org.hc.gestao.associados.api;
 
+import java.util.Optional;
+
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.DELETE;

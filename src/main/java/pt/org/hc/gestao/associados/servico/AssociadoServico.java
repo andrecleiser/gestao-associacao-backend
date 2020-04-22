@@ -33,8 +33,10 @@ public class AssociadoServico {
         return listaPerfilAssociadoDto;
     }
 
-    public Associado listarAssociadoPorId(Integer idAssociado) {
-        return this.associadoDao.findById(idAssociado);
+    public AssociadoDto listarAssociadoPorId(Integer idAssociado) {
+        // TODO - FAZER VALIDAÇÃO
+        Optional<Associado> associado = this.associadoDao.findByIdOptional(idAssociado);
+        return this.associadoMapper.paraAssociadoDto(associado.get());
     }
 
     @Transactional
@@ -57,7 +59,9 @@ public class AssociadoServico {
         associadoOptional.get().setNome(associadoDto.getNome());
         associadoOptional.get().setNomeMae(associadoDto.getNomeMae());
         associadoOptional.get().setNomePai(associadoDto.getNomePai());
-        associadoOptional.get().setDataNascimento(associadoDto.getDataNascimento());
+        associadoOptional.get().setDataNascimento(
+            associadoDto.getDataNascimento().toLocalDate()
+        );
         associadoOptional.get().setMorada(associadoDto.getMorada());
         associadoOptional.get().setConcelho(associadoDto.getConcelho());
         associadoOptional.get().setDistrito(associadoDto.getDistrito());
