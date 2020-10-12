@@ -1,0 +1,5 @@
+insert into associado values(nextval('associado_id_associado_seq'), 'Anderson Lopes', '998798654', 'al@gmail.co', 'Maria', 'Luiz', '1979-11-06', 'Rua Almira Carmelo', 'Paulista', 'Pernambuco', '2844654', '55', 'Brasileiro', null);
+insert into associado values(nextval('associado_id_associado_seq'), 'Ayrone Martins', '998798654', 'ay@gmail.co', 'Maria', 'Luiz', '1979-11-06', 'Rua Almira Carmelo', 'Paulista', 'Pernambuco', '2846654', '55', 'Brasileiro', null);
+insert into associado values(nextval('associado_id_associado_seq'), 'Lucianna', '998798654', 'lu@gmail.co', 'Maria', 'Luiz', '1979-11-06', 'Rua Almira Carmelo', 'Paulista', 'Pernambuco', '2844654', '55', 'Brasileiro', null);
+insert into associado values(nextval('associado_id_associado_seq'), 'Maria Aparecida', '998798654', 'ma@gmail.co', 'Maria', 'Luiz', '1979-11-06', 'Rua Almira Carmelo', 'Paulista', 'Pernambuco', '2446654', '55', 'Brasileiro', null);
+insert into associado values(nextval('associado_id_associado_seq'), 'Heitor Cleiser', '998798654', 'he@gmail.co', 'Maria', 'Luiz', '1979-11-06', 'Rua Almira Carmelo', 'Paulista', 'Pernambuco', '8446654', '55', 'Brasileiro', null);

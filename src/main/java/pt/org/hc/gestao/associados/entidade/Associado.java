@@ -8,11 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Data
-public class Associado {
+@Getter @Setter
+public class Associado extends PanacheEntityBase {
 	@Column(name = "id_associado")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

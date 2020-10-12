@@ -1,0 +1,10 @@
+pt/org/hc/gestao/associados/api/BaseApi.class
+pt/org/hc/gestao/associados/dto/Associado/AssociadoDto.class
+pt/org/hc/gestao/associados/api/AssociadoApi.class
+pt/org/hc/gestao/associados/servico/associado/AssociadoServico.class
+pt/org/hc/gestao/associados/dto/mapper/AssociadoMapperImpl.class
+pt/org/hc/gestao/associados/dto/mapper/AssociadoMapper.class
+META-INF/panache-archive.marker
+pt/org/hc/gestao/associados/entidade/Associado.class
+pt/org/hc/gestao/associados/servico/shared/MigracaoFlywayServico.class
+pt/org/hc/gestao/associados/dto/Associado/PerfilAssociadoDto.class
