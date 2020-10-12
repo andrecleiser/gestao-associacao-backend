@@ -1,6 +1,6 @@
 package pt.org.hc.gestao.associados.dto.mapper;
 
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import javax.enterprise.context.ApplicationScoped;
 import pt.org.hc.gestao.associados.dto.Associado.AssociadoDto;
 import pt.org.hc.gestao.associados.dto.Associado.PerfilAssociadoDto;
@@ -8,8 +8,8 @@ import pt.org.hc.gestao.associados.entidade.Associado;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-04-22T18:46:27+0100",
-    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 1.8.0_221 (Oracle Corporation)"
+    date = "2020-10-06T07:50:56+0100",
+    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.7 (AdoptOpenJDK)"
 )
 @ApplicationScoped
 public class AssociadoMapperImpl implements AssociadoMapper {

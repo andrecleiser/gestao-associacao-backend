@@ -1,5 +1,3 @@
-drop TABLE associado_foto;
-
 CREATE TABLE associado_foto
 (
     id_associado_foto serial NOT NULL,
@@ -14,7 +12,4 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public.associado_foto
-    OWNER to postgres;
-	
 create unique index idx_unique_id_associado on associado_foto (id_associado);

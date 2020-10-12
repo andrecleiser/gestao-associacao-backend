@@ -1,5 +1,3 @@
-drop TABLE associado;
-
 CREATE TABLE associado
 (
     id_associado serial NOT NULL,
@@ -24,7 +22,4 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public.associado
-    OWNER to postgres;
-	
 create unique index idx_unique_email on associado (email);

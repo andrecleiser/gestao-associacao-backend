@@ -1,4 +1,4 @@
-package pt.org.hc.gestao.associados.servico;
+package pt.org.hc.gestao.associados.servico.associado;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,8 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
-import pt.org.hc.gestao.associados.dao.AssociadoDao;
+import io.quarkus.panache.common.Sort;
 import pt.org.hc.gestao.associados.dto.Associado.AssociadoDto;
-import pt.org.hc.gestao.associados.dto.Associado.AssociadoFotoDto;
 import pt.org.hc.gestao.associados.dto.Associado.PerfilAssociadoDto;
 import pt.org.hc.gestao.associados.dto.mapper.AssociadoMapper;
 import pt.org.hc.gestao.associados.entidade.Associado;
@@ -20,48 +19,43 @@ import pt.org.hc.gestao.associados.entidade.Associado;
 public class AssociadoServico {
 
     @Inject
-    AssociadoDao associadoDao;
-
-    @Inject
     AssociadoMapper associadoMapper;
 
     public List<PerfilAssociadoDto> listarPerfilAssociados() {
-        ArrayList<PerfilAssociadoDto> listaPerfilAssociadoDto = new ArrayList<PerfilAssociadoDto>();
-        this.associadoDao
-            .listAll()
-            .forEach(associado -> listaPerfilAssociadoDto.add(this.associadoMapper.paraPerfilDto(associado)));
+        final ArrayList<PerfilAssociadoDto> listaPerfilAssociadoDto = new ArrayList<PerfilAssociadoDto>();
+        Associado.listAll(Sort.by("nome")).forEach(
+                associado -> listaPerfilAssociadoDto.add(this.associadoMapper.paraPerfilDto((Associado) associado)));
         return listaPerfilAssociadoDto;
     }
 
-    public AssociadoDto listarAssociadoPorId(Integer idAssociado) {
+    public AssociadoDto listarAssociadoPorId(final Integer idAssociado) {
         // TODO - FAZER VALIDAÇÃO
-        Optional<Associado> associado = this.associadoDao.findByIdOptional(idAssociado);
+        final Optional<Associado> associado = Associado.findByIdOptional(idAssociado);
         return this.associadoMapper.paraAssociadoDto(associado.get());
     }
 
     @Transactional
-    public Associado incluirAssociado(AssociadoDto associadoDto) {
+    public Associado incluirAssociado(final AssociadoDto associadoDto) {
 
-        Associado associado = this.associadoMapper.paraEntidade(associadoDto);
-        this.associadoDao.persist(associado);
+        final Associado associado = this.associadoMapper.paraEntidade(associadoDto);
+        associado.persist();
         return associado;
     }
 
     @Transactional
-    public void atualizarAssociado(Integer idAssociado, @Valid AssociadoDto associadoDto) {
+    public void atualizarAssociado(final Integer idAssociado, @Valid final AssociadoDto associadoDto) {
 
-        Optional<Associado> associadoOptional = this.associadoDao.findByIdOptional(idAssociado);
+        final Optional<Associado> associadoOptional = Associado.findByIdOptional(idAssociado);
         // TODO - VALIDAR QUANDO NÃO EXISTIR ASSOCIADO
         atualizarDados(associadoDto, associadoOptional);
+        associadoOptional.get().persist();
     }
 
-    private void atualizarDados(AssociadoDto associadoDto, Optional<Associado> associadoOptional) {
+    private void atualizarDados(final AssociadoDto associadoDto, final Optional<Associado> associadoOptional) {
         associadoOptional.get().setNome(associadoDto.getNome());
         associadoOptional.get().setNomeMae(associadoDto.getNomeMae());
         associadoOptional.get().setNomePai(associadoDto.getNomePai());
-        associadoOptional.get().setDataNascimento(
-            associadoDto.getDataNascimento().toLocalDate()
-        );
+        associadoOptional.get().setDataNascimento(associadoDto.getDataNascimento().toLocalDate());
         associadoOptional.get().setMorada(associadoDto.getMorada());
         associadoOptional.get().setConcelho(associadoDto.getConcelho());
         associadoOptional.get().setDistrito(associadoDto.getDistrito());
@@ -73,23 +67,23 @@ public class AssociadoServico {
     }
 
     @Transactional
-    public void excluriAssociado(Integer idAssociado) {
-        Optional<Associado> associado = this.associadoDao.findByIdOptional(idAssociado);
+    public void excluriAssociado(final Integer idAssociado) {
+        final Optional<Associado> associado = Associado.findByIdOptional(idAssociado);
         // TODO - VALIDAR QUANDO NÃO EXISTIR ASSOCIADO
-        this.associadoDao.delete(associado.get());
+        associado.get().delete();
     }
 
     @Transactional
-    public void atualizarFoto(Integer idAssociado, AssociadoFotoDto associadoFotoDto) {
-        Associado associado = this.associadoDao.findById(idAssociado);
-        associado.setFoto(associadoFotoDto.getFoto());
+    public void atualizarFoto(Integer idAssociado, String associadoFotoBase64) {
+        Associado associado = Associado.findById(idAssociado);
+        associado.setFoto(associadoFotoBase64);
         // TODO - VALIDAR QUANDO NÃO EXISTIR ASSOCIADO
-        this.associadoDao.persist(associado);
+        associado.persist();
     }
 
     @Transactional
-    public void excluirFoto(Integer idAssociado) {
-        this.associadoDao.update("foto = null where idAssociado = ?1", idAssociado);
+    public void excluirFoto(final Integer idAssociado) {
+        Associado.update("foto = null where idAssociado = ?1", idAssociado);
     }
 
 }
