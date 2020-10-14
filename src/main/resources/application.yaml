@@ -50,7 +50,7 @@ quarkus:
       url: jdbc:postgresql://${conf.db.host}:${conf.db.port}/${conf.db.nome}
 
   flyway:
-    migrate-at-start: false
+    migrate-at-start: true
     schemas: public
     table: flyway_versoes
     locations: ${conf.flyway-localizacao}
