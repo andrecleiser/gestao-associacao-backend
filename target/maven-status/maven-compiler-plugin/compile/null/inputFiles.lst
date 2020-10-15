@@ -1,5 +1,6 @@
 /home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/dto/mapper/AssociadoMapper.java
 /home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/api/AssociadoApi.java
+/home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/filtro/CookieFilter.java
 /home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/servico/shared/MigracaoFlywayServico.java
 /home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/servico/associado/AssociadoServico.java
 /home/andre/dev/projetos/git/gestao-associacao-backend/src/main/java/pt/org/hc/gestao/associados/dto/Associado/AssociadoDto.java

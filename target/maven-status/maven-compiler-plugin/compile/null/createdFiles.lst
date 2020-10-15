@@ -8,3 +8,4 @@ META-INF/panache-archive.marker
 pt/org/hc/gestao/associados/entidade/Associado.class
 pt/org/hc/gestao/associados/servico/shared/MigracaoFlywayServico.class
 pt/org/hc/gestao/associados/dto/Associado/PerfilAssociadoDto.class
+pt/org/hc/gestao/filtro/CookieFilter.class
