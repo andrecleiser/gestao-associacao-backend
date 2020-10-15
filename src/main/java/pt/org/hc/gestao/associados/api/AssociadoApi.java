@@ -37,7 +37,6 @@ public class AssociadoApi extends BaseApi {
     public Response listarPerfilAssociados() {
         return Response.ok(this.associadoServico.listarPerfilAssociados()).build();
     }
-
     @GET
     @Path("{idAssociado}")
     @Authenticated
