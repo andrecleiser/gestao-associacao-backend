@@ -33,7 +33,7 @@ public class AssociadoApi extends BaseApi {
 
     @GET
     @Path("perfis")
-    // @Authenticated
+    @Authenticated
     public Response listarPerfilAssociados() {
         return Response.ok(this.associadoServico.listarPerfilAssociados()).build();
     }
