@@ -40,6 +40,7 @@ quarkus:
     cors:
       ~: true
       origin: ${conf.app.url.frontend}
+      access-control-allow-credentials: true
     port: 8080
 
   datasource:

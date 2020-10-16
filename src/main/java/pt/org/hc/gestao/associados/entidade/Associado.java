@@ -4,15 +4,20 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Table(name = "tb_associado")
 @Getter @Setter
 public class Associado extends PanacheEntityBase {
 	@Column(name = "id_associado")
@@ -39,6 +44,8 @@ public class Associado extends PanacheEntityBase {
 	private String codigoPostal;
 	private String email;
 	private String nacionalidade;
-	@Column(name = "foto_base64")
-	private String foto;
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_associado")
+	private AssociadoFoto foto;
 }

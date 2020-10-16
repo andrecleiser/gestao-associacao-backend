@@ -9,11 +9,13 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.panache.common.Sort;
 import pt.org.hc.gestao.associados.dto.Associado.AssociadoDto;
 import pt.org.hc.gestao.associados.dto.Associado.PerfilAssociadoDto;
 import pt.org.hc.gestao.associados.dto.mapper.AssociadoMapper;
 import pt.org.hc.gestao.associados.entidade.Associado;
+import pt.org.hc.gestao.associados.entidade.AssociadoFoto;
 
 @RequestScoped
 public class AssociadoServico {
@@ -75,10 +77,11 @@ public class AssociadoServico {
 
     @Transactional
     public void atualizarFoto(Integer idAssociado, String associadoFotoBase64) {
-        Associado associado = Associado.findById(idAssociado);
-        associado.setFoto(associadoFotoBase64);
+        Optional<AssociadoFoto> associadoFotoOptional = AssociadoFoto.findByIdOptional(idAssociado);
+        AssociadoFoto associadoFoto = associadoFotoOptional.orElse(new AssociadoFoto(idAssociado, null));
+        associadoFoto.foto = associadoFotoBase64;
         // TODO - VALIDAR QUANDO NÃO EXISTIR ASSOCIADO
-        associado.persist();
+        AssociadoFoto.persist(associadoFoto);
     }
 
     @Transactional

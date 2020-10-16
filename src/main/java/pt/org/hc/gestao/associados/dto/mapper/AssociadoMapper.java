@@ -19,7 +19,7 @@ public interface AssociadoMapper {
         @Mapping(target = "nome"),
         @Mapping(target = "dataNascimento"),
         @Mapping(target = "nacionalidade"),
-        @Mapping(target = "foto")
+        @Mapping(source = "foto.foto", target = "foto")
     })
     PerfilAssociadoDto paraPerfilDto(Associado associado);
 

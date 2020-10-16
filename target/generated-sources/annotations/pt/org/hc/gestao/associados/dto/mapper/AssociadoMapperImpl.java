@@ -5,10 +5,11 @@ import javax.enterprise.context.ApplicationScoped;
 import pt.org.hc.gestao.associados.dto.Associado.AssociadoDto;
 import pt.org.hc.gestao.associados.dto.Associado.PerfilAssociadoDto;
 import pt.org.hc.gestao.associados.entidade.Associado;
+import pt.org.hc.gestao.associados.entidade.AssociadoFoto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-10-15T07:54:07+0100",
+    date = "2020-10-16T17:39:04+0100",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.7 (AdoptOpenJDK)"
 )
 @ApplicationScoped
@@ -47,11 +48,11 @@ public class AssociadoMapperImpl implements AssociadoMapper {
 
         PerfilAssociadoDto perfilAssociadoDto = new PerfilAssociadoDto();
 
+        perfilAssociadoDto.setFoto( associadoFotoFoto( associado ) );
         perfilAssociadoDto.setIdAssociado( associado.getIdAssociado() );
         perfilAssociadoDto.setNome( associado.getNome() );
         perfilAssociadoDto.setDataNascimento( associado.getDataNascimento() );
         perfilAssociadoDto.setNacionalidade( associado.getNacionalidade() );
-        perfilAssociadoDto.setFoto( associado.getFoto() );
 
         return perfilAssociadoDto;
     }
@@ -79,5 +80,20 @@ public class AssociadoMapperImpl implements AssociadoMapper {
         associadoDto.setDataNascimento( java.time.LocalDateTime.of(associado.getDataNascimento(), java.time.LocalTime.MIN) );
 
         return associadoDto;
+    }
+
+    private String associadoFotoFoto(Associado associado) {
+        if ( associado == null ) {
+            return null;
+        }
+        AssociadoFoto foto = associado.getFoto();
+        if ( foto == null ) {
+            return null;
+        }
+        String foto1 = foto.foto;
+        if ( foto1 == null ) {
+            return null;
+        }
+        return foto1;
     }
 }

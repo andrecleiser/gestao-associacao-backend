@@ -43,7 +43,7 @@ public class AssociadoApi extends BaseApi {
     public Response listarAssociadoPorId() {
         return Response.ok(this.associadoServico.listarAssociadoPorId(idAssociado)).build();
     }
-
+    
     @POST
     @Authenticated
     public Response incluirAssociado(@Valid AssociadoDto associadoDto) {
