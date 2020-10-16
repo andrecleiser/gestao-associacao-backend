@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.panache.common.Sort;
 import pt.org.hc.gestao.associados.dto.Associado.AssociadoDto;
 import pt.org.hc.gestao.associados.dto.Associado.PerfilAssociadoDto;
