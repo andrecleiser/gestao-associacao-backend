@@ -33,7 +33,7 @@
       usuario: ${DATABASE_USER}
       senha: ${DATABASE_PASSWORD}
     
-    flyway-localizacao: db/scripts/prod
+    flyway-localizacao: db/prod
 
 quarkus:
   http:
