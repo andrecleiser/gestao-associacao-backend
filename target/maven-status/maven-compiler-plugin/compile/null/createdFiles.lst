@@ -1,6 +1,7 @@
 pt/org/hc/gestao/associados/api/BaseApi.class
 pt/org/hc/gestao/associados/dto/Associado/AssociadoDto.class
 pt/org/hc/gestao/associados/api/AssociadoApi.class
+pt/org/hc/filtro/CookieFilter.class
 pt/org/hc/gestao/associados/servico/associado/AssociadoServico.class
 pt/org/hc/gestao/associados/entidade/AssociadoFoto.class
 pt/org/hc/gestao/associados/dto/mapper/AssociadoMapperImpl.class
